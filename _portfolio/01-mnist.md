@@ -1,4 +1,3 @@
-
 ---
 title: "MNIST Image Classification"
 excerpt: "CNN 기반 손글씨 숫자 분류 및 모델 성능 최적화"
