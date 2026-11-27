@@ -1,3 +1,4 @@
+
 ---
 layout: archive
 title: "CV"
@@ -11,54 +12,67 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Jeonju University, Jeonju, South Korea
+  * B.S. in Artificial Intelligence (in progress)
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+Research Interests
+======
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Deep Learning
+* Reinforcement Learning
+* Natural Language Processing
+* Financial Data Analysis
+* Machine Learning Applications
 
-Publications
+Technical Skills
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
+
+* Programming
+  * Python
+
+* Artificial Intelligence
+  * PyTorch
+  * TensorFlow / Keras
+  * Scikit-learn
+
+* Data Analysis & Visualization
+  * NumPy
+  * Pandas
+  * Matplotlib
+
+* Development Environment
+  * Git / GitHub
+  * Ubuntu / WSL2
+  * Docker
+  * ROS2
+
+Portfolio
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
+
+<ul>
+{% for post in site.portfolio reversed %}
+  <li>
+    <a href="{{ post.url | relative_url }}">
+      {{ post.title }}
+    </a>
+    <p>{{ post.excerpt | strip_html }}</p>
+  </li>
+{% endfor %}
+</ul>
+
+Presentations
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
+
+* Soft Actor-Critic (SAC)
+  * Actor-Critic Architecture
+  * Maximum Entropy Reinforcement Learning
+  * Continuous Control
+
+Activities
 ======
-* Currently signed in to 43 different slack teams
+
+* Kaggle Machine Learning Competitions
+* University AI Projects
+* Data Analysis Projects
+* Technical Blogging
