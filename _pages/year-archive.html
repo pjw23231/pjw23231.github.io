@@ -1,19 +1,42 @@
 ---
 layout: archive
 permalink: /year-archive/
-title: "Blog posts"
+title: "Tech Blog"
 author_profile: true
 redirect_from:
   - /wordpress/blog-posts/
 ---
 
 {% include base_path %}
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single.html %}
+<p>인공지능과 데이터 분석의 원리, 구현, 실험 및 문제 해결 과정을 기록합니다.</p>
+{% assign topics = "Deep Learning|Reinforcement Learning|Natural Language Processing|Financial Data Analysis|Development" | split: "|" %}
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:1.5em 0;">
+{% for topic in topics %}
+  {% assign entries = site.categories[topic] %}
+  <a href="#{{ topic | slugify }}" style="display:block;border:1px solid #888;border-radius:6px;padding:14px;text-decoration:none;color:inherit;">
+    <strong>{{ topic }}</strong><br><small>{{ entries.size | default: 0 }} posts</small>
+  </a>
 {% endfor %}
+</div>
+{% for topic in topics %}
+  <h2 id="{{ topic | slugify }}" class="archive__subtitle">{{ topic }}</h2>
+  {% assign entries = site.categories[topic] %}
+  {% for post in entries %}
+    {% include archive-single.html %}
+  {% else %}
+    <p>아직 등록된 게시물이 없습니다.</p>
+  {% endfor %}
+{% endfor %}
+<h2 class="archive__subtitle">Other Posts</h2>
+{% assign has_other = false %}
+{% for post in site.posts %}
+  {% assign matched = false %}
+  {% for topic in topics %}
+    {% if post.categories contains topic %}{% assign matched = true %}{% endif %}
+  {% endfor %}
+  {% unless matched %}
+    {% assign has_other = true %}
+    {% include archive-single.html %}
+  {% endunless %}
+{% endfor %}
+{% unless has_other %}<p>기타 게시물이 없습니다.</p>{% endunless %}
